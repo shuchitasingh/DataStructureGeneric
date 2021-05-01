@@ -20,19 +20,7 @@ public class MyLinkedList {
             this.head=newNode;
             this.head.setNext(tempNode);
         }
-    }
-    public void PrintMyNodes(){
-        StringBuffer myNodes=new StringBuffer("MyNodes:");
-        INode tempNode=head;
-        while (tempNode.getNext()!=null){
-            myNodes.append(tempNode.getKey());
-            if(tempNode.equals(tail)) myNodes.append("->");
-            tempNode=tempNode.getNext();
-        }
-        myNodes.append(tempNode.getKey());
-        System.out.println(myNodes);
-    }
-    public void append(INode myNode) {
+ 
         if(this.head==null){
             this.head=myNode;
         }
@@ -43,14 +31,3 @@ public class MyLinkedList {
             this.tail=myNode;
         }
     }
-
-    public void insert(INode myNode, INode newNode) {
-        INode tempNode=myNode.getNext();
-        myNode.setNext(newNode);
-        newNode.setNext(tempNode);
-    }
-
-
-
-
-}
