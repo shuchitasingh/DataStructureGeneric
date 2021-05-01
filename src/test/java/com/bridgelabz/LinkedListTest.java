@@ -33,5 +33,38 @@ public class LinkedListTest {
         Assert.assertTrue(result);
         linkedList.PrintMyNodes();
     }
+    @Test
+    public void given3NumbersWhenAddedToLinkedListShouldBeaddAtLast() {
+        MyNode<Integer> MyFirstNode=new MyNode<>(56);
+        MyNode<Integer> MySecondNode=new MyNode<>(30);
+        MyNode<Integer> MyThirdNode=new MyNode<>(70);
+        MyLinkedList linkedList=new MyLinkedList();
+        linkedList.add(MyFirstNode);
+        linkedList.append(MySecondNode);
+        linkedList.append(MyThirdNode);
+        linkedList.PrintMyNodes();
+        boolean result=MyLinkedList.head.equals(MyFirstNode)&&
+                MyLinkedList.head.getNext().equals(MySecondNode)&&
+                MySecondNode.getNext().equals(MyThirdNode);
+        Assert.assertTrue(result);
+
+    }
+
+    @Test
+    public void given3NumbersWhenInsertingSecondInBetweenShouldPassLinkedListResult(){
+        MyNode<Integer> MyFirstNode=new MyNode<>(56);
+        MyNode<Integer> MySecondNode=new MyNode<>(30);
+        MyNode<Integer> MyThirdNode=new MyNode<>(70);
+        MyLinkedList linkedList=new MyLinkedList();
+        linkedList.add(MyFirstNode);
+        linkedList.append(MyThirdNode);
+        linkedList.insert(MyFirstNode,MySecondNode);
+        boolean result=linkedList.head.equals(MyFirstNode)&&
+                linkedList.head.getNext().equals(MySecondNode)&&
+                linkedList.tail.equals(MyThirdNode);
+
+        Assert.assertTrue(result);
+        linkedList.PrintMyNodes();
+    }
 
 }
