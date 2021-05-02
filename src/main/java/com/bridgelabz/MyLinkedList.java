@@ -98,4 +98,21 @@ public class MyLinkedList<K> {
         }
         return size;
     }
+    public void addInAscendingOrder(INode<K> newNode) {
+        if(this.head==null){
+            this.head=newNode;
+        } else if(((Comparable<K>)this.head.getKey()).compareTo(newNode.getKey()) > 0) {
+            newNode.setNext(head);
+            this.head = newNode;
+        } else {
+            INode<K> tempNode = this.head;
+            while(tempNode.getNext() != null && ((Comparable<K>) tempNode.getNext().getKey()).compareTo(newNode.getKey()) < 0){
+                tempNode = tempNode.getNext();
+            }
+            newNode.setNext(tempNode.getNext());
+            tempNode.setNext(newNode);
+        }
+        System.out.println("Ascending order : ");
+        PrintMyNodes();
+    }
 }
